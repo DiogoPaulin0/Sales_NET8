@@ -18,6 +18,26 @@ namespace Sales_NET8.Web.Controllers
             return View();
         }
 
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Contact(string Name, string Email, string Message)
+        {
+            // Exemplo: enviar a mensagem por email
+            // EmailService.Send(Email, Message);
+
+            ViewBag.Message = "Sua mensagem foi enviada com sucesso!";
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
