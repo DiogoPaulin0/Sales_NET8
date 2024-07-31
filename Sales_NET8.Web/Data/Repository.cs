@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Sales_NET8.Web.Data.Entities;
+﻿using Sales_NET8.Web.Data.Entities;
 
 namespace Sales_NET8.Web.Data
 {
@@ -37,11 +36,6 @@ namespace Sales_NET8.Web.Data
             _context.Countries.Remove(country);
         }
 
-        public async Task<bool> SaveAllAsync()
-        {
-            return await _context.SaveChangesAsync() > 0;
-        }
-
         public bool CountryExists(int id)
         {
             return _context.Countries.Any(e => e.Id == id);
@@ -50,6 +44,46 @@ namespace Sales_NET8.Web.Data
         public bool CountryNameExists(string name)
         {
             return _context.Countries.Any(e => e.Name == name);
+        }
+
+        public void AddCategory(Category category)
+        {
+            _context.Categories.Add(category);
+        }
+
+        public bool CategoryExists(int id)
+        {
+            return _context.Categories.Any(e => e.Id == id);
+        }
+
+        public bool CategoryNameExists(string name)
+        {
+            return _context.Categories.Any(e => e.Name == name);
+        }
+
+        public IEnumerable<Category> GetCategories()
+        {
+            return _context.Categories.ToList();
+        }
+
+        public Category GetCategory(int id)
+        {
+            return _context.Categories.Find(id);
+        }
+
+        public void RemoveCategory(Category category)
+        {
+            _context.Categories.Remove(category);
+        }
+
+        public void UpdateCategory(Category category)
+        {
+            _context.Categories.Update(category);
+        }
+
+        public async Task<bool> SaveAllAsync()
+        {
+            return await _context.SaveChangesAsync() > 0;
         }
     }
 }

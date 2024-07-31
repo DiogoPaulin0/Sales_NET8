@@ -1,17 +1,17 @@
-﻿@model Sales_NET8.Web.Data.Entities.Country
+﻿@model Sales_NET8.Web.Data.Entities.Category
 
 @{
     ViewData["Title"] = "Inserir";
 }
 
-<h1>Inserir País</h1>
+<h1>Inserir Categoria</h1>
 
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <partial name="_Country" model="Model" />
+            <partial name="_Category" model="Model" />
             <br />
             <div class="form-group">
                 <input type="submit" value="Criar" class="btn btn-primary" />

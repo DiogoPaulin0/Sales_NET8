@@ -33,6 +33,7 @@ namespace Sales_NET8.Web
             }
 
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -42,6 +43,8 @@ namespace Sales_NET8.Web
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            RunSeeding(app);
 
             app.Run();
         }
