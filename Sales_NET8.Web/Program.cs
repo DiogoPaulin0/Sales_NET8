@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Sales_NET8.Web.Data;
+using static Microsoft.AspNetCore.Razor.Language.TagHelperMetadata;
 
 namespace Sales_NET8.Web
 {
@@ -11,6 +12,9 @@ namespace Sales_NET8.Web
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            //Add runtime compilatio
+            builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
             builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("name=DefaultConnection"));
 
